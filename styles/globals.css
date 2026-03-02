@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 220 20% 98%;
+  --fg: 228 32% 10%;
+  --card: 0 0% 100%;
+  --border: 220 18% 86%;
+  --muted: 224 12% 44%;
+  --accent-from: 221 100% 58%;
+  --accent-to: 262 95% 64%;
+}
+
+.dark {
+  --bg: 225 34% 8%;
+  --fg: 220 22% 95%;
+  --card: 226 30% 12%;
+  --border: 226 18% 24%;
+  --muted: 225 12% 68%;
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-fg antialiased;
+  background-image: radial-gradient(circle at 20% 20%, hsla(226, 100%, 62%, 0.15), transparent 38%),
+    radial-gradient(circle at 80% 10%, hsla(262, 100%, 68%, 0.14), transparent 32%);
+  min-height: 100vh;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+::selection {
+  background: hsla(230, 100%, 65%, 0.3);
+}
+
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus-visible:ring-accent-from;
+}
+
+.glass {
+  background: color-mix(in hsl, hsl(var(--card)) 80%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.gradient-text {
+  @apply bg-accent-gradient bg-clip-text text-transparent;
+}
